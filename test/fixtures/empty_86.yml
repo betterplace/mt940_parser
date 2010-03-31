@@ -1,0 +1,6 @@
+--- 
+- - !ruby/object:MT940::StatementLineInformation 
+    account_holder: ""
+    code: 0
+    details: ""
+    modifier: 

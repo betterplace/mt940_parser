@@ -175,32 +175,34 @@ class MT940
       content.match(/^(\d{3})((.).*)$/)
       @code = $1.to_i
       
-      seperator = $3
-      sub_fields = $2.scan(/#{Regexp.escape(seperator)}(\d{2})([^#{Regexp.escape(seperator)}]*)/)
-      
       details = []
       account_holder = []
+
+      if seperator = $3
+        sub_fields = $2.scan(/#{Regexp.escape(seperator)}(\d{2})([^#{Regexp.escape(seperator)}]*)/)
       
-      sub_fields.each do |(code, content)|
-        case code.to_i
-          when 0
-            @transaction_description = content
-          when 10
-            @prima_nota = content
-          when 20..29, 60..63
-            details << content
-          when 30
-            @bank_code = content
-          when 31
-            @account_number = content
-          when 32..33
-            account_holder << content
-          when 34
-            @text_key_extension = content
-        else
-          @not_implemented_fields ||= []
-          @not_implemented_fields << [code, content]
-          $stderr << "code not implemented: code:#{code} content:»#{content}«\n" if $DEBUG
+      
+        sub_fields.each do |(code, content)|
+          case code.to_i
+            when 0
+              @transaction_description = content
+            when 10
+              @prima_nota = content
+            when 20..29, 60..63
+              details << content
+            when 30
+              @bank_code = content
+            when 31
+              @account_number = content
+            when 32..33
+              account_holder << content
+            when 34
+              @text_key_extension = content
+          else
+            @not_implemented_fields ||= []
+            @not_implemented_fields << [code, content]
+            $stderr << "code not implemented: code:#{code} content:»#{content}«\n" if $DEBUG
+          end
         end
       end
       
