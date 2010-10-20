@@ -3,13 +3,17 @@ require 'yaml'
 
 # $DEBUG = true
 class TestMt940 < Test::Unit::TestCase
-  should "parse fixture files correctly" do
-    Dir[File.dirname(__FILE__) + "/fixtures/*.txt"].each do |mt940_file|
-      mt94_data = MT940.parse(IO.read(mt940_file))
-      generated_structure_file = mt940_file.gsub(/.txt$/, ".yml")
 
-      # File.open(generated_structure_file, "w") do |f| f.write mt94_data.to_yaml end
-      assert_equal IO.read(generated_structure_file), mt94_data.to_yaml
+  def read_mt940_data(file)
+    MT940.parse(IO.read(file))
+  end
+  
+  def test_it_should_parse_fixture_files_correctly
+    Dir[File.dirname(__FILE__) + "/fixtures/*.txt"].each do |file|
+      data = read_mt940_data(file)
+      generated_structure_file = file.gsub(/.txt$/, ".yml")
+
+      assert_equal IO.read(generated_structure_file), data.to_yaml
     end
   end
 end

@@ -10,7 +10,6 @@ begin
     gem.email = "tca@betterplace.org"
     gem.homepage = "http://github.com/thieso2/mt940"
     gem.authors = ["Thies C. Arntzen"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

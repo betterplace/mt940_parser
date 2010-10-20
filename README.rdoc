@@ -1,6 +1,9 @@
 = mt940
 
-Description goes here.
+This is a library to parse account statements which are formatted as swift mt940. 
+
+See the following link for documentation of the format.
+http://www.google.de/url?sa=t&source=web&cd=1&ved=0CBwQFjAA&url=http%3A%2F%2Fmartin.hinner.info%2Fbankconvert%2Fswift_mt940_942.pdf&ei=alO_TObpPNGRswbD15WqDQ&usg=AFQjCNHkVGOfzofgKkk6dEkynAho02S2cg
 
 == Note on Patches/Pull Requests
  
