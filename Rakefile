@@ -5,11 +5,10 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "mt940"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "tca@betterplace.org"
-    gem.homepage = "http://github.com/thieso2/mt940"
-    gem.authors = ["Thies C. Arntzen"]
+    gem.summary = %Q{MT940 parses account statements in the SWIFT MT940 format.}
+    gem.email = "developers@betterplace.org"
+    gem.homepage = "http://github.com/betterplace/mt940"
+    gem.authors = ["Thies C. Arntzen", "Phillip Oertel"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
