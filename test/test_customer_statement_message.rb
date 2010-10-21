@@ -46,4 +46,15 @@ class TestCustomerStatementMessage < Test::Unit::TestCase
     assert_equal "0194787400888", messages[0].account_number
     assert_equal "0194791600888", messages[1].account_number
   end
+  
+  def test_parsing_a_file_with_broken_structure_should_raise_an_exception
+    file = File.dirname(__FILE__) + "/fixtures/sepa_snippet_broken.txt"
+    assert_raise(StandardError) { MT940::CustomerStatementMessage.parse_file(file) }
+  end
+  
+  def test_should_raise_method_missing_when_asking_statement_lines_for_unknown_stuff
+    file = File.dirname(__FILE__) + "/fixtures/sepa_snippet.txt"
+    message = MT940::CustomerStatementMessage.parse_file(file).first
+    assert_raise(NoMethodError) { message.statement_lines.first.foo  }
+  end
 end

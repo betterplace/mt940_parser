@@ -19,6 +19,7 @@ class MT940
       @statement_lines = []
       @raw.each_with_index do |line, i|
         next unless line.class == MT940::StatementLine
+        ensure_is_info_line!(@raw[i+1])
         @statement_lines << StatementLineBundle.new(@raw[i], @raw[i+1])
       end
     end
@@ -31,6 +32,14 @@ class MT940
       @account.account_number
     end
 
+    private 
+    
+    def ensure_is_info_line!(line)
+      unless line.is_a?(MT940::StatementLineInformation)
+        raise StandardError, "Unexpected Structure; expected StatementLineInformation, but was #{line.class}" 
+      end
+    end
+    
   end
   
   class StatementLineBundle
@@ -47,6 +56,7 @@ class MT940
     end
 
     def method_missing(method, *args, &block)
+      super unless METHOD_MAP.has_key?(method)
       object = instance_variable_get("@#{METHOD_MAP[method.to_sym]}")
       object.send(method)
     end
