@@ -34,6 +34,16 @@ class TestCustomerStatementMessage < Test::Unit::TestCase
     assert_equal "KARL\n        KAUFMANN", line.account_holder
   end
   
+  def test_statement_lines_info_should_have_bank_code
+    line = @message.statement_lines.first
+    assert_equal "DRESDEFF508", line.bank_code
+  end
+  
+  def test_statement_lines_info_should_have_account_number
+    line = @message.statement_lines.first
+    assert_equal "DE14508800500194785000", line.account_number
+  end
+  
   def test_statement_lines_should_have_details
     line = @message.statement_lines.first
     assert_equal "EREF+EndToEndId TFNR 22 004\n 00001\nSVWZ+Verw CTSc-01 BC-PPP TF\nNr 22 004", line.details

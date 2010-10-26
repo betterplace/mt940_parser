@@ -49,6 +49,8 @@ class MT940
       :funds_code     => :line,
       :account_holder => :info,
       :details        => :info,
+      :account_number => :info,
+      :bank_code      => :info
     }
 
     def initialize(statement_line, statement_line_info)
