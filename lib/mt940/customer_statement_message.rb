@@ -8,8 +8,11 @@ class MT940
     attr_reader :statement_lines
 
     def self.parse_file(file)
-      string = File.read(file)
-      messages = MT940.parse(string)
+      self.parse(File.read(file))
+    end
+    
+    def self.parse(data)
+      messages = MT940.parse(data)
       messages.map { |msg| new(msg) }
     end
     
