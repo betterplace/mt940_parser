@@ -8,6 +8,7 @@ class TestCustomerStatementMessage < Test::Unit::TestCase
     file = File.dirname(__FILE__) + "/fixtures/sepa_snippet.txt"
     messages = MT940::CustomerStatementMessage.parse_file(file)
     @message = messages.first
+    @message_2 = messages.last
   end
   
   def test_it_should_know_the_bank_code
@@ -23,10 +24,16 @@ class TestCustomerStatementMessage < Test::Unit::TestCase
     assert_equal 4, @message.statement_lines.size
   end
   
-  def test_statement_lines_should_have_amount_info
+  def test_statement_lines_should_have_amount_info_credit
     line = @message.statement_lines.first
     assert_equal 5099005, line.amount
     assert_equal :credit, line.funds_code
+  end
+  
+  def test_statement_lines_should_have_amount_info_debit
+    line = @message_2.statement_lines.first
+    assert_equal 8, line.amount
+    assert_equal :debit, line.funds_code
   end
   
   def test_statement_lines_should_have_account_holder
