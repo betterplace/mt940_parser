@@ -48,9 +48,13 @@ class MT940
         Date.new("20#{$1}".to_i, $2.to_i, $3.to_i)
       end
       
-      def parse_short_date(year, date)
-        date.match(SHORT_DATE)
-        Date.new(year, $1.to_i, $2.to_i)
+      def parse_entry_date(raw_entry_date, value_date)
+        raw_entry_date.match(SHORT_DATE)
+        entry_date = Date.new(value_date.year, $1.to_i, $2.to_i)
+        if (entry_date.year != value_date.year)
+          raise "Unhandled case: value date and entry date are in different years"
+        end
+        entry_date
       end
   end
 
@@ -128,7 +132,7 @@ class MT940
   # 61
   class StatementLine < Field
     attr_reader :date, :entry_date, :funds_code, :amount, :swift_code, :reference, :transaction_description
-    
+
     def parse_content(content)
       content.match(/^(\d{6})(\d{4})?(C|D|RC|RD)\D?(\d{1,12},\d{0,2})((?:N|F).{3})(NONREF|.{0,16})(?:$|\/\/)(.*)/).to_a
       
@@ -151,7 +155,11 @@ class MT940
       @transaction_description = $7
       
       @date = parse_date(raw_date)
-      @entry_date = parse_short_date(@date.year, raw_entry_date)
+      @entry_date = parse_entry_date(raw_entry_date, @date)
+    end
+    
+    def value_date
+      @date
     end
   end
   

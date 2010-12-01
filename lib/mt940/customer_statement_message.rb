@@ -50,10 +50,12 @@ class MT940
     METHOD_MAP = {
       :amount         => :line,
       :funds_code     => :line,
+      :value_date     => :line,
+      :entry_date     => :line,
       :account_holder => :info,
       :details        => :info,
       :account_number => :info,
-      :bank_code      => :info
+      :bank_code      => :info,
     }
 
     def initialize(statement_line, statement_line_info)

@@ -56,6 +56,16 @@ class TestCustomerStatementMessage < Test::Unit::TestCase
     assert_equal "EREF+EndToEndId TFNR 22 004\n 00001\nSVWZ+Verw CTSc-01 BC-PPP TF\nNr 22 004", line.details
   end
   
+  def test_statement_lines_should_have_an_entry_date
+    line = @message.statement_lines.first
+    assert_equal Date.parse("2007-09-04"), line.entry_date
+  end
+  
+  def test_statement_lines_should_have_a_value_date
+    line = @message.statement_lines.first
+    assert_equal Date.parse("2007-09-07"), line.value_date
+  end
+  
   def test_parsing_the_file_should_return_two_message_objects
     file = File.dirname(__FILE__) + "/fixtures/sepa_snippet.txt"
     messages = MT940::CustomerStatementMessage.parse_file(file)

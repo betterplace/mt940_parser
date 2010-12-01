@@ -9,7 +9,7 @@ class TestMt940 < Test::Unit::TestCase
   end
   
   def test_it_should_parse_fixture_files_correctly
-    Dir[File.dirname(__FILE__) + "/fixtures/*.txt"].each do |file|
+    Dir[File.dirname(__FILE__) + "/fixtures/*.txt"].reject { |f| f =~ /sepa_snippet/ }.each do |file|
       data = read_mt940_data(file)
       generated_structure_file = file.gsub(/.txt$/, ".yml")
 
