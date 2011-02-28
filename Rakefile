@@ -1,13 +1,22 @@
 require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
 require 'rake'
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "mt940"
+    gem.name = "mt940_parser"
     gem.summary = %Q{MT940 parses account statements in the SWIFT MT940 format.}
+    gem.license = "MIT"
     gem.email = "developers@betterplace.org"
-    gem.homepage = "http://github.com/betterplace/mt940"
+    gem.homepage = "http://github.com/betterplace/mt940_parser"
     gem.authors = ["Thies C. Arntzen", "Phillip Oertel"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -35,8 +44,6 @@ rescue LoadError
     abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
   end
 end
-
-task :test => :check_dependencies
 
 task :default => :test
 
