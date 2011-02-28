@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mt940_parser}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thies C. Arntzen", "Phillip Oertel"]
@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
     "docs/uebersicht_der_geschaeftsvorfallcodes_und_buchungs_textschluessel.pdf",
     "lib/mt940.rb",
     "lib/mt940/customer_statement_message.rb",
+    "mt940_parser.gemspec",
     "test/fixtures/currency_in_25.txt",
     "test/fixtures/currency_in_25.yml",
     "test/fixtures/empty_86.txt",
