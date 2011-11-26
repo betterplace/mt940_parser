@@ -76,9 +76,11 @@ class MT940
   # 25
   class Account < Field
     attr_reader :bank_code, :account_number, :account_currency
-    
+
+    CONTENT = /^(.{8,11})\/(\d{0,23})([A-Z]{3})?$/
+
     def parse_content(content)
-      content.match(/^(.{8,11})\/(\d{0,23})([A-Z]{3})?$/)
+      content.match(CONTENT)
       @bank_code, @account_number, @account_currency = $1, $2, $3
     end
   end
@@ -86,9 +88,11 @@ class MT940
   # 28
   class Statement < Field
     attr_reader :number, :sheet
+
+    CONTENT = /^(0|(\d{5,5})\/(\d{2,5}))$/
     
     def parse_content(content)
-      content.match(/^(0|(\d{5,5})\/(\d{2,5}))$/)
+      content.match(CONTENT)
       if $1 == '0'
         @number = @sheet = 0
       else
@@ -100,9 +104,11 @@ class MT940
   # 60
   class AccountBalance < Field
     attr_reader :balance_type, :sign, :currency, :amount, :date
+
+    CONTENT = /^(C|D)(\w{6})(\w{3})(\d{1,12},\d{0,2})$/
     
     def parse_content(content)
-      content.match(/^(C|D)(\w{6})(\w{3})(\d{1,12},\d{0,2})$/)
+      content.match(CONTENT)
 
       @balance_type = case @modifier
         when 'F'
@@ -135,8 +141,10 @@ class MT940
   class StatementLine < Field
     attr_reader :date, :entry_date, :funds_code, :amount, :swift_code, :reference, :transaction_description
 
+    CONTENT = /^(\d{6})(\d{4})?(C|D|RC|RD)\D?(\d{1,12},\d{0,2})((?:N|F).{3})(NONREF|.{0,16})(?:$|\/\/)(.*)/
+
     def parse_content(content)
-      content.match(/^(\d{6})(\d{4})?(C|D|RC|RD)\D?(\d{1,12},\d{0,2})((?:N|F).{3})(NONREF|.{0,16})(?:$|\/\/)(.*)/).to_a
+      content.match(CONTENT)
       
       raw_date = $1
       raw_entry_date = $2
