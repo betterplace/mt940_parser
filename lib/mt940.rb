@@ -157,7 +157,7 @@ class MT940
       @transaction_description = $7
       
       @date = parse_date(raw_date)
-      @entry_date = parse_entry_date(raw_entry_date, @date)
+      @entry_date = parse_entry_date(raw_entry_date, @date) if raw_entry_date
     end
     
     def value_date
