@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'mt940/customer_statement_message'
 
 class MT940
