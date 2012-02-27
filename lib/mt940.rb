@@ -233,6 +233,15 @@ class MT940
   
   class << self
     def parse(text)
+      new_text = text.clone.force_encoding("ISO-8859-1") 
+      if !new_text.valid_encoding?
+        warn "Your data is not in binary format"
+        new_text = text.clone.encode("ISO-8859-1")
+          if !new_text.valid_encoding?
+            puts "WOOOOT WHAT IS THE RIGHT ENCODING?"
+          end
+      end
+      text = new_text # WOOOT refactor?
       text << "\r\n" if text[-1,1] == '-'
       raw_sheets = text.split(/^-\r\n/).map { |sheet| sheet.gsub(/\r\n(?!:)/, '') }
       sheets = raw_sheets.map { |raw_sheet| parse_sheet(raw_sheet) }

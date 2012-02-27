@@ -1,0 +1,4 @@
+---
+- - !ruby/object:MT940::Job
+    modifier: !!null 
+    reference: STAR1ÜTßUMS
