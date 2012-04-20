@@ -220,7 +220,8 @@ class MT940
           else
             @not_implemented_fields ||= []
             @not_implemented_fields << [code, content]
-            $stderr << "code not implemented: code:#{code} content:\"#{content}\"\n" if $DEBUG
+            $stderr << "code not implemented: code:#{code} content: \"#{content}\"\n" if $DEBUG
+
           end
         end
       end
