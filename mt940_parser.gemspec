@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "mt940_parser"
-  s.version = "1.0.2"
+  s.version = "1.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thies C. Arntzen", "Phillip Oertel"]
-  s.date = "2012-04-18"
+  s.date = "2012-04-20"
   s.email = "developers@betterplace.org"
   s.extra_rdoc_files = [
     "LICENSE",
@@ -58,7 +58,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/betterplace/mt940_parser"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.21"
+  s.rubygems_version = "1.8.15"
   s.summary = "MT940 parses account statements in the SWIFT MT940 format."
   s.test_files = [
     "test/helper.rb",
