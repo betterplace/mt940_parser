@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'mt940/customer_statement_message'
 
 class MT940
@@ -221,7 +220,7 @@ class MT940
           else
             @not_implemented_fields ||= []
             @not_implemented_fields << [code, content]
-            $stderr << "code not implemented: code:#{code} content:»#{content}«\n" if $DEBUG
+            $stderr << "code not implemented: code:#{code} content:\"#{content}\"\n" if $DEBUG
           end
         end
       end
@@ -231,6 +230,7 @@ class MT940
     end
   end
   
+
   class << self
     def parse(text)
       new_text = text.clone.force_encoding("ISO-8859-1") 
@@ -238,15 +238,15 @@ class MT940
         warn "Your data is not in binary format"
         new_text = text.clone.encode("ISO-8859-1")
           if !new_text.valid_encoding?
-            puts "WOOOOT WHAT IS THE RIGHT ENCODING?"
+            raise "Your data could not be encoded in binary format"
           end
       end
-      text = new_text # WOOOT refactor?
-      text << "\r\n" if text[-1,1] == '-'
-      raw_sheets = text.split(/^-\r\n/).map { |sheet| sheet.gsub(/\r\n(?!:)/, '') }
+      new_text << "\r\n" if new_text[-1,1] == '-'
+      raw_sheets = new_text.split(/^-\r\n/).map { |sheet| sheet.gsub(/\r\n(?!:)/, '') }
       sheets = raw_sheets.map { |raw_sheet| parse_sheet(raw_sheet) }
     end
-    
+
+
     private
       def parse_sheet(sheet)
         lines = sheet.split("\r\n")

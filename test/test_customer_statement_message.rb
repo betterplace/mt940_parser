@@ -1,5 +1,7 @@
-require 'helper'
+require_relative 'helper'
 require 'yaml'
+YAML::ENGINE.yamler = 'psych'
+
 
 # $DEBUG = true
 class TestCustomerStatementMessage < Test::Unit::TestCase
