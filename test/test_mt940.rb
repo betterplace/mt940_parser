@@ -29,7 +29,7 @@ class TestMt940 < Test::Unit::TestCase
     binary_file = MT940.parse(IO.read(file).force_encoding("ISO-8859-15"))
     utf8_file = MT940.parse(IO.read(file).force_encoding("UTF-8"))
     [binary_file, utf8_file].each do |file|
-      assert_equal file.last.last.reference.encoding.name, "ISO-8859-1"
+      assert_equal file.last.last.reference.encoding.name, "UTF-8"
     end
   end
 
