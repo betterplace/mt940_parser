@@ -48,14 +48,16 @@ class MT940
   class StatementLineBundle
 
     METHOD_MAP = {
-      :amount         => :line,
-      :funds_code     => :line,
-      :value_date     => :line,
-      :entry_date     => :line,
-      :account_holder => :info,
-      :details        => :info,
-      :account_number => :info,
-      :bank_code      => :info,
+      :amount                   => :line,
+      :funds_code               => :line,
+      :value_date               => :line,
+      :entry_date               => :line,
+      :account_holder           => :info,
+      :details                  => :info,
+      :account_number           => :info,
+      :bank_code                => :info,
+      :code                     => :info,
+      :transaction_description  => :info,
     }
 
     def initialize(statement_line, statement_line_info)
