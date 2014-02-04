@@ -235,7 +235,7 @@ class MT940
   class << self
     def parse(text)
       raise "Invalid encoding!" unless text.valid_encoding?
-      new_text = text.encode('utf-8')
+      new_text = text.encode('utf-8').strip
       new_text << "\r\n" if new_text[-1,1] == '-'
       raw_sheets = new_text.split(/^-\r\n/).map { |sheet| sheet.gsub(/\r\n(?!:)/, '') }
       sheets = raw_sheets.map { |raw_sheet| parse_sheet(raw_sheet) }
