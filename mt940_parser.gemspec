@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "mt940_parser"
-  s.version = "1.0.5"
+  s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thies C. Arntzen", "Phillip Oertel"]
-  s.date = "2014-02-04"
+  s.date = "2015-01-07"
   s.email = "developers@betterplace.org"
   s.extra_rdoc_files = [
     "LICENSE",
@@ -17,7 +17,9 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
+    ".ruby-version",
     ".specification",
+    ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE",
@@ -58,11 +60,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/betterplace/mt940_parser"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "2.0.14"
   s.summary = "MT940 parses account statements in the SWIFT MT940 format."
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
