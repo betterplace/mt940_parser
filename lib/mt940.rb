@@ -36,6 +36,7 @@ class MT940
 
     def initialize(modifier, content)
       @modifier = modifier
+      @content = content
       parse_content(content)
     end
 

@@ -2,6 +2,14 @@ require_relative 'helper'
 require 'yaml'
 YAML::ENGINE.yamler = 'psych'
 
+module Mt940FieldEncoderWithoutContent
+  def encode_with(coder)
+    instance_variables.each do |variable|
+      next if variable == :@content
+      coder[variable.to_s.gsub('@', '')] = instance_variable_get(variable)
+    end
+  end
+end
 
 # $DEBUG = true
 class TestMt940 < Test::Unit::TestCase
@@ -9,6 +17,8 @@ class TestMt940 < Test::Unit::TestCase
   def test_it_should_parse_fixture_files_correctly
     Dir[File.dirname(__FILE__) + "/fixtures/*.txt"].reject { |f| f =~ /sepa_snippet/ }.each do |file|
       data = MT940.parse(IO.read(file))
+      data.flatten.each { |field| field.extend(Mt940FieldEncoderWithoutContent) }
+
       generated_structure_file = file.gsub(/.txt$/, ".yml")
 
       assert_equal YAML::load_file(generated_structure_file).to_yaml, data.to_yaml
