@@ -9,4 +9,5 @@ group :development do
   gem "bundler"
   gem "jeweler"
   gem "test-unit"
+  gem "byebug", platform: :mri
 end
