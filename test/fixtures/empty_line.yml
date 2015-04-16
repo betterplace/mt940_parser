@@ -1,4 +1,5 @@
---- 
-- - !ruby/object:MT940::Job 
+---
+- - !ruby/object:MT940::Job
     modifier: 
+    content: TELEREPORTING
     reference: TELEREPORTING
