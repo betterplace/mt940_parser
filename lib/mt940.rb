@@ -42,8 +42,13 @@ class MT940
 
     private
       def parse_amount_in_cents(amount)
-        # don't use Integer(amount) function, because amount can be "008" - interpreted as octal number ("010" = 8)
-        amount.gsub(',', '').to_i
+        # We use string manipulation to not introduce rounding issues
+        _, _, units, cents = amount.match(/(0*)([[:digit:]]*),([[:digit:]]*)/).to_a
+
+        cents = sprintf('%-2.2s', cents).tr(' ', '0').to_i
+        units = units.to_i
+
+        100 * units + cents
       end
 
       def parse_date(date)
