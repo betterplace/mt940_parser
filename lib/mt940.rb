@@ -1,5 +1,6 @@
 require 'mt940/version'
 require 'mt940/customer_statement_message'
+require 'bigdecimal'
 
 class MT940
   class Field
@@ -43,8 +44,9 @@ class MT940
 
     private
       def parse_amount_in_cents(amount)
-        # don't use Integer(amount) function, because amount can be "008" - interpreted as octal number ("010" = 8)
-        amount.gsub(',', '').to_i
+        amount =~ /\A(\d+)(,\d*)?\z/ or
+          raise StandardError, "invalid amount #{amount}"
+        (100 * BigDecimal.new(amount.sub(?,, ?.))).floor
       end
 
       def parse_date(date)

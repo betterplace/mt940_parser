@@ -26,7 +26,7 @@
     modifier: 
     content: 0709040904CR300,NTRFTFNr 40005 MSGID//0724710345313905
     funds_code: :credit
-    amount: 300
+    amount: 30000
     swift_code: NTRF
     reference: TFNr 40005 MSGID
     transaction_description: 0724710345313905
@@ -74,7 +74,7 @@
     modifier: 
     content: 0709040904CR15000,NTRFTFNr 40005 MSGID//0724710345313900
     funds_code: :credit
-    amount: 15000
+    amount: 1500000
     swift_code: NTRF
     reference: TFNr 40005 MSGID
     transaction_description: 0724710345313900
@@ -209,7 +209,7 @@
     balance_type: :start
     sign: :debit
     currency: EUR
-    amount: 9704999
+    amount: 97049990
     date: 2007-09-03
   - !ruby/object:MT940::StatementLine
     modifier: 
@@ -257,7 +257,7 @@
     modifier: 
     content: 0709040904DR500250,NTRFKREF+//BD7CFA74485E7E69
     funds_code: :debit
-    amount: 500250
+    amount: 50025000
     swift_code: NTRF
     reference: KREF+
     transaction_description: BD7CFA74485E7E69
@@ -500,7 +500,7 @@
     modifier: 
     content: 0709040904CR250000,NTRFNONREF//0724710290628244
     funds_code: :credit
-    amount: 250000
+    amount: 25000000
     swift_code: NTRF
     reference: NONREF
     transaction_description: 0724710290628244
@@ -531,7 +531,7 @@
     modifier: 
     content: 0709040904CR300000,NTRFNONREF//0724710290631813
     funds_code: :credit
-    amount: 300000
+    amount: 30000000
     swift_code: NTRF
     reference: NONREF
     transaction_description: 0724710290631813
@@ -560,7 +560,7 @@
     modifier: 
     content: 0709040904CR500000,NTRFNONREF//0724710290630146
     funds_code: :credit
-    amount: 500000
+    amount: 50000000
     swift_code: NTRF
     reference: NONREF
     transaction_description: 0724710290630146
@@ -713,7 +713,7 @@
     modifier: 
     content: 0709040904DR500250,NTRFTFNr 01006 PayId//E87048E11B394C1E
     funds_code: :debit
-    amount: 500250
+    amount: 50025000
     swift_code: NTRF
     reference: TFNr 01006 PayId
     transaction_description: E87048E11B394C1E
@@ -804,7 +804,7 @@
     balance_type: :start
     sign: :credit
     currency: EUR
-    amount: 2039602
+    amount: 20396020
     date: 2007-09-04
   - !ruby/object:MT940::ValutaBalance
     modifier: 
@@ -812,7 +812,7 @@
     balance_type: 
     sign: :credit
     currency: EUR
-    amount: 2039602
+    amount: 20396020
     date: 2007-09-04
 - - !ruby/object:MT940::Job
     modifier: 
@@ -835,7 +835,7 @@
     balance_type: :start
     sign: :debit
     currency: EUR
-    amount: 404322
+    amount: 4043220
     date: 2007-09-03
   - !ruby/object:MT940::StatementLine
     modifier: 
@@ -1181,7 +1181,7 @@
     modifier: 
     content: 0709040904CR50,NTRFTFNr 40016 MSGID//0724710324649377
     funds_code: :credit
-    amount: 50
+    amount: 5000
     swift_code: NTRF
     reference: TFNr 40016 MSGID
     transaction_description: 0724710324649377
@@ -1307,7 +1307,7 @@
     modifier: 
     content: 0709040904DR2550,NTRFKREF+//31408CF87AD5901E
     funds_code: :debit
-    amount: 2550
+    amount: 255000
     swift_code: NTRF
     reference: KREF+
     transaction_description: 31408CF87AD5901E
@@ -1428,7 +1428,7 @@
     modifier: 
     content: 0709040904DR402104,NTRFNONREF//57B4197CC644DE8F
     funds_code: :debit
-    amount: 402104
+    amount: 40210400
     swift_code: NTRF
     reference: NONREF
     transaction_description: 57B4197CC644DE8F
@@ -2091,7 +2091,7 @@
     modifier: 
     content: 0709040904DR342104,NTRFKREF+//A26B6D6B5E821EA9
     funds_code: :debit
-    amount: 342104
+    amount: 34210400
     swift_code: NTRF
     reference: KREF+
     transaction_description: A26B6D6B5E821EA9
@@ -2111,7 +2111,7 @@
     modifier: 
     content: 0709040904DR962104,NTRFKREF+//493189D221858097
     funds_code: :debit
-    amount: 962104
+    amount: 96210400
     swift_code: NTRF
     reference: KREF+
     transaction_description: 493189D221858097
@@ -2135,7 +2135,7 @@
     modifier: 
     content: 0709040904DR1522104,NTRFNONREF//75C62EC25E19D187
     funds_code: :debit
-    amount: 1522104
+    amount: 152210400
     swift_code: NTRF
     reference: NONREF
     transaction_description: 75C62EC25E19D187
@@ -2231,7 +2231,7 @@
     balance_type: :start
     sign: :credit
     currency: EUR
-    amount: 279801
+    amount: 2798010
     date: 2007-09-04
   - !ruby/object:MT940::ValutaBalance
     modifier: 
@@ -2239,7 +2239,7 @@
     balance_type: 
     sign: :credit
     currency: EUR
-    amount: 279801
+    amount: 2798010
     date: 2007-09-04
 - - !ruby/object:MT940::Job
     modifier: 
@@ -2617,7 +2617,7 @@
     modifier: 
     content: 0709040904DR342104,NTRFKREF+//D4AF9E363A92E76F
     funds_code: :debit
-    amount: 342104
+    amount: 34210400
     swift_code: NTRF
     reference: KREF+
     transaction_description: D4AF9E363A92E76F
@@ -2749,7 +2749,7 @@
     balance_type: :start
     sign: :credit
     currency: EUR
-    amount: 2039602
+    amount: 20396020
     date: 2007-09-04
   - !ruby/object:MT940::ValutaBalance
     modifier: 
@@ -2757,7 +2757,7 @@
     balance_type: 
     sign: :credit
     currency: EUR
-    amount: 2039602
+    amount: 20396020
     date: 2007-09-04
 - - !ruby/object:MT940::Job
     modifier: 
@@ -3003,7 +3003,7 @@
     modifier: 
     content: 0709040904DR1500,NTRFKREF+//536D80EFEC56ACF8
     funds_code: :debit
-    amount: 1500
+    amount: 150000
     swift_code: NTRF
     reference: KREF+
     transaction_description: 536D80EFEC56ACF8
@@ -3029,7 +3029,7 @@
     balance_type: :start
     sign: :credit
     currency: EUR
-    amount: 11252504
+    amount: 112525040
     date: 2007-09-04
   - !ruby/object:MT940::ValutaBalance
     modifier: 
@@ -3066,7 +3066,7 @@
     modifier: 
     content: 0709040904CR300,NTRFTFNr 40001 MSGID//0724710345316116
     funds_code: :credit
-    amount: 300
+    amount: 30000
     swift_code: NTRF
     reference: TFNr 40001 MSGID
     transaction_description: '0724710345316116'
@@ -3114,7 +3114,7 @@
     modifier: 
     content: 0709040904CR15000,NTRFTFNr 40001 MSGID//0724710345316110
     funds_code: :credit
-    amount: 15000
+    amount: 1500000
     swift_code: NTRF
     reference: TFNr 40001 MSGID
     transaction_description: '0724710345316110'
@@ -3345,7 +3345,7 @@
     modifier: 
     content: 0709040904DR125300,1NTRFKREF+//F2CA963F5C750549
     funds_code: :debit
-    amount: 1253001
+    amount: 12530010
     swift_code: NTRF
     reference: KREF+
     transaction_description: F2CA963F5C750549
@@ -3402,13 +3402,13 @@
     balance_type: :start
     sign: :debit
     currency: EUR
-    amount: 450
+    amount: 45000
     date: 2007-09-03
   - !ruby/object:MT940::StatementLine
     modifier: 
     content: 0709040904DR150,NTRFKREF+//FFCD94B7601B6E06
     funds_code: :debit
-    amount: 150
+    amount: 15000
     swift_code: NTRF
     reference: KREF+
     transaction_description: FFCD94B7601B6E06
@@ -3434,7 +3434,7 @@
     balance_type: :start
     sign: :debit
     currency: EUR
-    amount: 600
+    amount: 60000
     date: 2007-09-04
   - !ruby/object:MT940::ValutaBalance
     modifier: 
@@ -3442,7 +3442,7 @@
     balance_type: 
     sign: :debit
     currency: EUR
-    amount: 600
+    amount: 60000
     date: 2007-09-04
 - - !ruby/object:MT940::Job
     modifier: 
@@ -3465,13 +3465,13 @@
     balance_type: :start
     sign: :debit
     currency: EUR
-    amount: 450
+    amount: 45000
     date: 2007-09-03
   - !ruby/object:MT940::StatementLine
     modifier: 
     content: 0709040904DR150,NTRFKREF+//DED4A9D0CA11033B
     funds_code: :debit
-    amount: 150
+    amount: 15000
     swift_code: NTRF
     reference: KREF+
     transaction_description: DED4A9D0CA11033B
@@ -3497,7 +3497,7 @@
     balance_type: :start
     sign: :debit
     currency: EUR
-    amount: 600
+    amount: 60000
     date: 2007-09-04
   - !ruby/object:MT940::ValutaBalance
     modifier: 
@@ -3505,7 +3505,7 @@
     balance_type: 
     sign: :debit
     currency: EUR
-    amount: 600
+    amount: 60000
     date: 2007-09-04
 - - !ruby/object:MT940::Job
     modifier: 
