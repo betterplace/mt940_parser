@@ -1,58 +1,28 @@
-require 'rubygems'
-require 'bundler'
-begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
-require 'rake'
+# vim: set filetype=ruby et sw=2 ts=2:
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "mt940_parser"
-    gem.summary = %Q{MT940 parses account statements in the SWIFT MT940 format.}
-    gem.license = "MIT"
-    gem.email = "developers@betterplace.org"
-    gem.homepage = "http://github.com/betterplace/mt940_parser"
-    gem.authors = ["Thies C. Arntzen", "Phillip Oertel"]
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
+require 'gem_hadar'
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
+GemHadar do
+  name        'mt940_parser'
+  module_type :class
+  path_name   'mt940'
+  path_module 'MT940'
+  author      [ "Thies C. Arntzen", "Phillip Oertel" ]
+  email       'developers@betterplace.org'
+  homepage    "http://github.com/betterplace/mt940_parser"
+  summary     'MT940 parses account statements in the SWIFT MT940 format.'
+  description 'Ruby library that parses account statements in the SWIFT MT940 format.'
+  test_dir    'test'
+  test_files  Dir['test/**/test_*.rb']
+  spec_dir    'spec'
+  ignore      '.*.sw[pon]', 'pkg', 'Gemfile.lock', '.rvmrc', 'coverage',
+    '.DS_Store', '.ruby-gemset', '.ruby-version', '.bundle', '.AppleDouble'
 
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/test_*.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
+  readme      'README.rdoc'
+  licenses    'MIT'
+
+  development_dependency 'test-unit'
+  development_dependency 'simplecov'
 end
 
 task :default => :test
-
-require 'rdoc/task'
-RDoc::Task.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "mt940 #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end

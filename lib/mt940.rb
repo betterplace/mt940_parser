@@ -1,3 +1,4 @@
+require 'mt940/version'
 require 'mt940/customer_statement_message'
 
 class MT940
