@@ -2,7 +2,6 @@
 # MT940.parse command. use it in order to make dealing with
 # the data easier
 class MT940
-
   class CustomerStatementMessage
 
     attr_reader :statement_lines
@@ -37,15 +36,15 @@ class MT940
     private
 
     def ensure_is_info_line!(line)
-      unless line.is_a?(MT940::StatementLineInformation)
-        raise StandardError, "Unexpected Structure; expected StatementLineInformation, but was #{line.class}"
+      unless line.is_a? MT940::StatementLineInformation
+        raise MT940::UnexpectedStructureError,
+          "Unexpected Structure; expected StatementLineInformation, "\
+          "but was #{line.class}"
       end
     end
-
   end
 
   class StatementLineBundle
-
     METHOD_MAP = {
       :amount                   => :line,
       :funds_code               => :line,
@@ -68,7 +67,5 @@ class MT940
       object = instance_variable_get("@#{METHOD_MAP[method.to_sym]}")
       object.send(method)
     end
-
   end
-
 end

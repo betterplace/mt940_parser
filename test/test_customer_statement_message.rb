@@ -76,7 +76,9 @@ class TestCustomerStatementMessage < Test::Unit::TestCase
 
   def test_parsing_a_file_with_broken_structure_should_raise_an_exception
     file = File.dirname(__FILE__) + "/fixtures/sepa_snippet_broken.txt"
-    assert_raise(StandardError) { MT940::CustomerStatementMessage.parse_file(file) }
+    assert_raise(MT940::UnexpectedStructureError) do
+      MT940::CustomerStatementMessage.parse_file(file)
+    end
   end
 
   def test_should_raise_method_missing_when_asking_statement_lines_for_unknown_stuff

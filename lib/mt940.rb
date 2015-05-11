@@ -1,4 +1,5 @@
 require 'mt940/version'
+require 'mt940/errors'
 require 'mt940/customer_statement_message'
 require 'bigdecimal'
 
@@ -6,7 +7,7 @@ class MT940
   class Field
     attr_reader :modifier, :content
 
-    DATE = /(\d{2})(\d{2})(\d{2})/
+    DATE       = /(\d{2})(\d{2})(\d{2})/
     SHORT_DATE = /(\d{2})(\d{2})/
 
     class << self
@@ -25,43 +26,44 @@ class MT940
             '64' => ValutaBalance,
             '65' => FutureValutaBalance,
             '86' => StatementLineInformation
-          }[number]
-
-          raise StandardError, "Field #{number} is not implemented" unless klass
+          }.fetch(number) do
+            raise FieldNotImplementedError, "Field #{number} is not implemented"
+          end
 
           klass.new(modifier, content)
         else
-          raise StandardError, "Wrong line format: #{line.dump}"
+          raise WrongLineFormatError, "Wrong line format: #{line.dump}"
         end
       end
     end
 
     def initialize(modifier, content)
       @modifier = modifier
-      @content = content
+      @content  = content
       parse_content(content)
     end
 
     private
-      def parse_amount_in_cents(amount)
-        amount =~ /\A(\d+)(,\d*)?\z/ or
-          raise StandardError, "invalid amount #{amount}"
-        (100 * BigDecimal.new(amount.sub(?,, ?.))).floor
-      end
 
-      def parse_date(date)
-        date.match(DATE)
-        Date.new("20#{$1}".to_i, $2.to_i, $3.to_i)
-      end
+    def parse_amount_in_cents(amount)
+      amount =~ /\A(\d+)(,\d*)?\z/ or
+        raise InvalidAmountFormatError, "invalid amount #{amount.inspect}"
+      (100 * BigDecimal.new(amount.sub(?,, ?.))).floor
+    end
 
-      def parse_entry_date(raw_entry_date, value_date)
-        raw_entry_date.match(SHORT_DATE)
-        entry_date = Date.new(value_date.year, $1.to_i, $2.to_i)
-        if (entry_date.year != value_date.year)
-          raise "Unhandled case: value date and entry date are in different years"
-        end
-        entry_date
+    def parse_date(date)
+      date.match(DATE)
+      Date.new("20#{$1}".to_i, $2.to_i, $3.to_i)
+    end
+
+    def parse_entry_date(raw_entry_date, value_date)
+      raw_entry_date.match(SHORT_DATE)
+      entry_date = Date.new(value_date.year, $1.to_i, $2.to_i)
+      unless entry_date.year == value_date.year
+        raise "Unhandled case: value date and entry date are in different years"
       end
+      entry_date
+    end
   end
 
   # 20
@@ -114,30 +116,33 @@ class MT940
     def parse_content(content)
       content.match(CONTENT)
 
-      @balance_type = case @modifier
+      @balance_type =
+        case @modifier
         when 'F'
           :start
         when 'M'
           :intermediate
-      end
+        end
 
-      @sign = case $1
+      @sign =
+        case $1
         when 'C'
           :credit
         when 'D'
           :debit
-      end
+        end
 
-      raw_date = $2
+      raw_date  = $2
       @currency = $3
-      @amount = parse_amount_in_cents($4)
+      @amount   = parse_amount_in_cents($4)
 
-      @date = case raw_date
+      @date =
+        case raw_date
         when 'ALT', '0'
           nil
         when DATE
           Date.new("20#{$1}".to_i, $2.to_i, $3.to_i)
-      end
+        end
     end
   end
 
@@ -150,9 +155,10 @@ class MT940
     def parse_content(content)
       content.match(CONTENT)
 
-      raw_date = $1
+      raw_date       = $1
       raw_entry_date = $2
-      @funds_code = case $3
+      @funds_code =
+        case $3
         when 'C'
           :credit
         when 'D'
@@ -161,7 +167,7 @@ class MT940
           :return_credit
         when 'RD'
           :return_debit
-      end
+        end
 
       @amount = parse_amount_in_cents($4)
       @swift_code = $5
@@ -198,34 +204,36 @@ class MT940
       content.match(/^(\d{3})((.).*)$/)
       @code = $1.to_i
 
-      details = []
+      details        = []
       account_holder = []
 
       if seperator = $3
-        sub_fields = $2.scan(/#{Regexp.escape(seperator)}(\d{2})([^#{Regexp.escape(seperator)}]*)/)
-
+        sub_fields = $2.scan(
+          /#{Regexp.escape(seperator)}(\d{2})([^#{Regexp.escape(seperator)}]*)/
+        )
 
         sub_fields.each do |(code, content)|
           case code.to_i
-            when 0
-              @transaction_description = content
-            when 10
-              @prima_nota = content
-            when 20..29, 60..63
-              details << content
-            when 30
-              @bank_code = content
-            when 31
-              @account_number = content
-            when 32..33
-              account_holder << content
-            when 34
-              @text_key_extension = content
+          when 0
+            @transaction_description = content
+          when 10
+            @prima_nota = content
+          when 20..29, 60..63
+            details << content
+          when 30
+            @bank_code = content
+          when 31
+            @account_number = content
+          when 32..33
+            account_holder << content
+          when 34
+            @text_key_extension = content
           else
             @not_implemented_fields ||= []
-            @not_implemented_fields << [code, content]
-            $stderr << "code not implemented: code:#{code} content: \"#{content}\"\n" if $DEBUG
-
+            @not_implemented_fields << [ code, content ]
+            if $DEBUG
+              warn "code not implemented: code:#{code} content: #{content.inspect}"
+            end
           end
         end
       end
@@ -235,22 +243,20 @@ class MT940
     end
   end
 
-
   class << self
     def parse(text)
-      raise "Invalid encoding!" unless text.valid_encoding?
-      new_text = text.encode('utf-8').strip
+      new_text = text.encode('UTF-8').strip
       new_text << "\r\n" if new_text[-1,1] == '-'
       raw_sheets = new_text.split(/^-\s*\r\n/).map { |sheet| sheet.gsub(/\r\n(?!:)/, '') }
       sheets = raw_sheets.map { |raw_sheet| parse_sheet(raw_sheet) }
     end
 
-
     private
-      def parse_sheet(sheet)
-        lines = sheet.split("\r\n")
-        fields = lines.reject { |line| line.empty? }.map { |line| Field.for(line) }
-        fields
-      end
+
+    def parse_sheet(sheet)
+      lines = sheet.split("\r\n")
+      fields = lines.reject { |line| line.empty? }.map { |line| Field.for(line) }
+      fields
+    end
   end
 end
