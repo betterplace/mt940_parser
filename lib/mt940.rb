@@ -1,4 +1,5 @@
 require 'mt940/customer_statement_message'
+require 'bigdecimal'
 
 class MT940
   class Field
@@ -42,13 +43,9 @@ class MT940
 
     private
       def parse_amount_in_cents(amount)
-        # We use string manipulation to not introduce rounding issues
-        _, _, units, cents = amount.match(/(0*)([[:digit:]]*),([[:digit:]]*)/).to_a
-
-        cents = sprintf('%-2.2s', cents).tr(' ', '0').to_i
-        units = units.to_i
-
-        100 * units + cents
+        amount =~ /\A(\d+)(,\d*)?\z/ or
+          raise StandardError, "invalid amount #{amount}"
+        (100 * BigDecimal.new(amount.sub(?,, ?.))).floor
       end
 
       def parse_date(date)
