@@ -12,6 +12,4 @@ class MT940
 
     class UnexpectedStructureError < ParseError; end
   end
-
-  include Errors
 end

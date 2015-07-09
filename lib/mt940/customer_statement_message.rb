@@ -37,7 +37,7 @@ class MT940
 
     def ensure_is_info_line!(line)
       unless line.is_a? MT940::StatementLineInformation
-        raise MT940::UnexpectedStructureError,
+        raise Errors::UnexpectedStructureError,
           "Unexpected Structure; expected StatementLineInformation, "\
           "but was #{line.class}"
       end

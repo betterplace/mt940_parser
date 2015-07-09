@@ -27,12 +27,12 @@ class MT940
             '65' => FutureValutaBalance,
             '86' => StatementLineInformation
           }.fetch(number) do
-            raise FieldNotImplementedError, "Field #{number} is not implemented"
+            raise Errors::FieldNotImplementedError, "Field #{number} is not implemented"
           end
 
           klass.new(modifier, content)
         else
-          raise WrongLineFormatError, "Wrong line format: #{line.dump}"
+          raise Errors::WrongLineFormatError, "Wrong line format: #{line.dump}"
         end
       end
     end
@@ -47,7 +47,7 @@ class MT940
 
     def parse_amount_in_cents(amount)
       amount =~ /\A(\d+)(,\d*)?\z/ or
-        raise InvalidAmountFormatError, "invalid amount #{amount.inspect}"
+        raise Errors::InvalidAmountFormatError, "invalid amount #{amount.inspect}"
       (100 * BigDecimal.new(amount.sub(?,, ?.))).floor
     end
 

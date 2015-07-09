@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
-# stub: mt940_parser 1.4.0 ruby lib
+# stub: mt940_parser 1.4.1 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "mt940_parser"
-  s.version = "1.4.0"
+  s.version = "1.4.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Thies C. Arntzen", "Phillip Oertel"]
-  s.date = "2015-05-11"
+  s.date = "2015-07-09"
   s.description = "Ruby library that parses account statements in the SWIFT MT940 format."
   s.email = "developers@betterplace.org"
   s.extra_rdoc_files = ["README.rdoc", "lib/mt940.rb", "lib/mt940/customer_statement_message.rb", "lib/mt940/errors.rb", "lib/mt940/version.rb"]
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/betterplace/mt940_parser"
   s.licenses = ["MIT"]
   s.rdoc_options = ["--title", "Mt940Parser - MT940 parses account statements in the SWIFT MT940 format.", "--main", "README.rdoc"]
-  s.rubygems_version = "2.4.6"
+  s.rubygems_version = "2.4.8"
   s.summary = "MT940 parses account statements in the SWIFT MT940 format."
   s.test_files = ["test/test_customer_statement_message.rb", "test/test_mt940.rb"]
 
@@ -24,16 +24,16 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<gem_hadar>, ["~> 1.2.1"])
+      s.add_development_dependency(%q<gem_hadar>, ["~> 1.0.0"])
       s.add_development_dependency(%q<test-unit>, [">= 0"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
-      s.add_dependency(%q<gem_hadar>, ["~> 1.2.1"])
+      s.add_dependency(%q<gem_hadar>, ["~> 1.0.0"])
       s.add_dependency(%q<test-unit>, [">= 0"])
       s.add_dependency(%q<simplecov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<gem_hadar>, ["~> 1.2.1"])
+    s.add_dependency(%q<gem_hadar>, ["~> 1.0.0"])
     s.add_dependency(%q<test-unit>, [">= 0"])
     s.add_dependency(%q<simplecov>, [">= 0"])
   end
