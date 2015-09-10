@@ -1,4 +1,5 @@
-require_relative 'helper'
+require_relative 'test_helper'
+require 'yaml'
 
 # $DEBUG = true
 class TestMt940 < Test::Unit::TestCase
