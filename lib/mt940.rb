@@ -18,7 +18,7 @@ class MT940
           klass = {
             '20' => Job,
             '21' => Reference,
-            '25' => Account,
+            '25' => AccountIdentification,
             '28' => Statement,
             '60' => AccountBalance,
             '61' => StatementLine,
@@ -80,6 +80,30 @@ class MT940
   end
 
   # 25
+  class AccountIdentification < Field
+    attr_reader :account_identifier
+    CONTENT = /(.{1,35})/ #any 35 chars (35x from the docs)
+
+    def parse_content(content)
+      content.match(CONTENT)
+      @account_identifier = $1
+    end
+
+    # fail over to the old Account class
+    def method_missing(method, *args, &block)
+      @fail_over_implementation ||= Account.new(@modifier, @content)
+      value = @fail_over_implementation.send(method)
+      warn "[DEPRECATION]:"
+      warn "You used '#{method}' on the Account/AccountIdentification class"
+      warn "This field is not part of the MT940 specification but implementation specific"
+      warn "Please use the 'account_identifier' and parse yourself."
+
+      value
+    end
+  end
+
+  # 25 - Legacy
+  # This class is deprecated as it does not match the spec.
   class Account < Field
     attr_reader :bank_code, :account_number, :account_currency
 

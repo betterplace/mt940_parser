@@ -16,7 +16,7 @@ class MT940
     end
 
     def initialize(lines)
-      @account = lines.find { |line| line.class == MT940::Account }
+      @account = lines.find { |line| line.class == MT940::AccountIdentification }
       @statement_lines = []
       lines.each_with_index do |line, i|
         next unless line.class == MT940::StatementLine

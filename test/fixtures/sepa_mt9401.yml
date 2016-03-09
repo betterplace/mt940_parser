@@ -3,12 +3,10 @@
     modifier: 
     content: T089413946000001
     reference: T089413946000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194774600888
-    bank_code: '50880050'
-    account_number: 0194774600888
-    account_currency: 
+    account_identifier: 50880050/0194774600888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -192,12 +190,10 @@
     modifier: 
     content: T089413956000001
     reference: T089413956000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194777100888
-    bank_code: '50880050'
-    account_number: 0194777100888
-    account_currency: 
+    account_identifier: 50880050/0194777100888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -297,12 +293,10 @@
     modifier: 
     content: T089413966000001
     reference: T089413966000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194778300888
-    bank_code: '50880050'
-    account_number: 0194778300888
-    account_currency: 
+    account_identifier: 50880050/0194778300888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -477,12 +471,10 @@
     modifier: 
     content: T089413976000001
     reference: T089413976000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194779500888
-    bank_code: '50880050'
-    account_number: 0194779500888
-    account_currency: 
+    account_identifier: 50880050/0194779500888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -605,12 +597,10 @@
     modifier: 
     content: T089413986000001
     reference: T089413986000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194780100888
-    bank_code: '50880050'
-    account_number: 0194780100888
-    account_currency: 
+    account_identifier: 50880050/0194780100888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -751,12 +741,10 @@
     modifier: 
     content: T089413996000001
     reference: T089413996000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194780101888
-    bank_code: '50880050'
-    account_number: 0194780101888
-    account_currency: 
+    account_identifier: 50880050/0194780101888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -818,12 +806,10 @@
     modifier: 
     content: T089414006000001
     reference: T089414006000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194781300888
-    bank_code: '50880050'
-    account_number: 0194781300888
-    account_currency: 
+    account_identifier: 50880050/0194781300888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -985,12 +971,10 @@
     modifier: 
     content: T089414006000002
     reference: T089414006000002
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194781300888
-    bank_code: '50880050'
-    account_number: 0194781300888
-    account_currency: 
+    account_identifier: 50880050/0194781300888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00002
@@ -1158,12 +1142,10 @@
     modifier: 
     content: T089414016000001
     reference: T089414016000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194782500888
-    bank_code: '50880050'
-    account_number: 0194782500888
-    account_currency: 
+    account_identifier: 50880050/0194782500888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -1383,12 +1365,10 @@
     modifier: 
     content: T089414016000002
     reference: T089414016000002
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194782500888
-    bank_code: '50880050'
-    account_number: 0194782500888
-    account_currency: 
+    account_identifier: 50880050/0194782500888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00002
@@ -1490,12 +1470,10 @@
     modifier: 
     content: T089414026000001
     reference: T089414026000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194783700888
-    bank_code: '50880050'
-    account_number: 0194783700888
-    account_currency: 
+    account_identifier: 50880050/0194783700888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -1685,12 +1663,10 @@
     modifier: 
     content: T089414026000002
     reference: T089414026000002
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194783700888
-    bank_code: '50880050'
-    account_number: 0194783700888
-    account_currency: 
+    account_identifier: 50880050/0194783700888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00002
@@ -1878,12 +1854,10 @@
     modifier: 
     content: T089414036000001
     reference: T089414036000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194784900888
-    bank_code: '50880050'
-    account_number: 0194784900888
-    account_currency: 
+    account_identifier: 50880050/0194784900888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -2068,12 +2042,10 @@
     modifier: 
     content: T089414036000002
     reference: T089414036000002
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194784900888
-    bank_code: '50880050'
-    account_number: 0194784900888
-    account_currency: 
+    account_identifier: 50880050/0194784900888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00002
@@ -2173,12 +2145,10 @@
     modifier: 
     content: T089414046000001
     reference: T089414046000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194784901888
-    bank_code: '50880050'
-    account_number: 0194784901888
-    account_currency: 
+    account_identifier: 50880050/0194784901888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00003/00001
@@ -2245,12 +2215,10 @@
     modifier: 
     content: T089414056000001
     reference: T089414056000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194785000888
-    bank_code: '50880050'
-    account_number: 0194785000888
-    account_currency: 
+    account_identifier: 50880050/0194785000888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -2421,12 +2389,10 @@
     modifier: 
     content: T089414056000002
     reference: T089414056000002
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194785000888
-    bank_code: '50880050'
-    account_number: 0194785000888
-    account_currency: 
+    account_identifier: 50880050/0194785000888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00002
@@ -2594,12 +2560,10 @@
     modifier: 
     content: T089414056000003
     reference: T089414056000003
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194785000888
-    bank_code: '50880050'
-    account_number: 0194785000888
-    account_currency: 
+    account_identifier: 50880050/0194785000888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00003
@@ -2696,12 +2660,10 @@
     modifier: 
     content: T089414066000001
     reference: T089414066000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194785001888
-    bank_code: '50880050'
-    account_number: 0194785001888
-    account_currency: 
+    account_identifier: 50880050/0194785001888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -2763,12 +2725,10 @@
     modifier: 
     content: T089414076000001
     reference: T089414076000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194786200888
-    bank_code: '50880050'
-    account_number: 0194786200888
-    account_currency: 
+    account_identifier: 50880050/0194786200888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -2891,12 +2851,10 @@
     modifier: 
     content: T089414086000001
     reference: T089414086000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194787400888
-    bank_code: '50880050'
-    account_number: 0194787400888
-    account_currency: 
+    account_identifier: 50880050/0194787400888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -3043,12 +3001,10 @@
     modifier: 
     content: T089414096000001
     reference: T089414096000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194791600888
-    bank_code: '50880050'
-    account_number: 0194791600888
-    account_currency: 
+    account_identifier: 50880050/0194791600888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -3264,12 +3220,10 @@
     modifier: 
     content: T089414106000001
     reference: T089414106000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194791601888
-    bank_code: '50880050'
-    account_number: 0194791601888
-    account_currency: 
+    account_identifier: 50880050/0194791601888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -3385,12 +3339,10 @@
     modifier: 
     content: T089414116000001
     reference: T089414116000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194798900888
-    bank_code: '50880050'
-    account_number: 0194798900888
-    account_currency: 
+    account_identifier: 50880050/0194798900888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -3448,12 +3400,10 @@
     modifier: 
     content: T089414126000001
     reference: T089414126000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194799000888
-    bank_code: '50880050'
-    account_number: 0194799000888
-    account_currency: 
+    account_identifier: 50880050/0194799000888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00004/00001
@@ -3511,12 +3461,10 @@
     modifier: 
     content: T089414136000001
     reference: T089414136000001
-  - !ruby/object:MT940::Account
+  - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 50880050/0194804000888
-    bank_code: '50880050'
-    account_number: 0194804000888
-    account_currency: 
+    account_identifier: 50880050/0194804000888
   - !ruby/object:MT940::Statement
     modifier: C
     content: 00001/00001
