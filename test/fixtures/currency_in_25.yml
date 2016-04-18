@@ -1,7 +1,5 @@
 ---
-- - !ruby/object:MT940::Account
+- - !ruby/object:MT940::AccountIdentification
     modifier: 
     content: 51210600/9223382012EUR
-    bank_code: '51210600'
-    account_number: '9223382012'
-    account_currency: EUR
+    account_identifier: 51210600/9223382012EUR
