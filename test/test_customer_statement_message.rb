@@ -19,6 +19,10 @@ class TestCustomerStatementMessage < Test::Unit::TestCase
     assert_equal "0194787400888", @message.account_number
   end
 
+  def test_it_should_have_an_account_identification
+    assert @message.account.is_a?(MT940::AccountIdentification)
+  end
+
   def test_it_should_have_statement_lines
     assert @message.statement_lines.respond_to?(:each)
     assert_equal 4, @message.statement_lines.size

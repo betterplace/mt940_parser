@@ -4,7 +4,7 @@
 class MT940
   class CustomerStatementMessage
 
-    attr_reader :statement_lines
+    attr_reader :account, :statement_lines
 
     def self.parse_file(file)
       self.parse(File.read(file))
