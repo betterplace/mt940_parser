@@ -1,4 +1,7 @@
-sudo: false
+before_install:
+  - gem update --system
+  - gem update bundler
+
 rvm:
   - 2.1
   - 2.2
@@ -10,5 +13,5 @@ matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
-env:
-  - CODECLIMATE_REPO_TOKEN=fadbdd7769b9a01ae6b8e3c8b2adf2de3049c87f8407c502fbe11d10578f1d43
+
+sudo: false
