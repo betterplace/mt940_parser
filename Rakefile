@@ -18,11 +18,10 @@ GemHadar do
   ignore      '.*.sw[pon]', 'pkg', 'Gemfile.lock', '.rvmrc', 'coverage',
     '.DS_Store', '.ruby-gemset', '.ruby-version', '.bundle', '.AppleDouble'
 
-  readme      'README.rdoc'
+  readme      'README.md'
   licenses    'MIT'
 
   development_dependency 'test-unit'
-  development_dependency 'simplecov'
 end
 
 task :default => :test
