@@ -2,6 +2,8 @@ require 'mt940/version'
 require 'mt940/errors'
 require 'mt940/customer_statement_message'
 require 'bigdecimal'
+require 'bigdecimal/util'
+require 'date'
 
 class MT940
   class Field
@@ -48,17 +50,17 @@ class MT940
     def parse_amount_in_cents(amount)
       amount =~ /\A(\d+)(,\d*)?\z/ or
         raise Errors::InvalidAmountFormatError, "invalid amount #{amount.inspect}"
-      (100 * BigDecimal.new(amount.sub(?,, ?.))).floor
+      (100 * amount.sub(',', '.').sub(/\.\z/, '').to_d).floor
     end
 
     def parse_date(date)
       date.match(DATE)
-      Date.new("20#{$1}".to_i, $2.to_i, $3.to_i)
+      ::Date.new("20#{$1}".to_i, $2.to_i, $3.to_i)
     end
 
     def parse_entry_date(raw_entry_date, value_date)
       raw_entry_date.match(SHORT_DATE)
-      entry_date = Date.new(value_date.year, $1.to_i, $2.to_i)
+      entry_date = ::Date.new(value_date.year, $1.to_i, $2.to_i)
       unless entry_date.year == value_date.year
         raise "Unhandled case: value date and entry date are in different years"
       end
@@ -165,7 +167,7 @@ class MT940
         when 'ALT', '0'
           nil
         when DATE
-          Date.new("20#{$1}".to_i, $2.to_i, $3.to_i)
+          ::Date.new("20#{$1}".to_i, $2.to_i, $3.to_i)
         end
     end
   end
