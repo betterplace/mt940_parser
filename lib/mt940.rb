@@ -15,7 +15,7 @@ class MT940
     class << self
 
       def for(line)
-        if line.match(/^:(\d{2,2})(\w)?:(.*)$/)
+        if line.match(/^:(\d{2})(\w)?:(.*)$/)
           number, modifier, content = $1, $2, $3
           klass = {
             '20' => Job,
@@ -272,8 +272,10 @@ class MT940
   class << self
     def parse(text)
       new_text = text.encode('UTF-8').strip
-      new_text << "\r\n" if new_text[-1,1] == '-'
-      raw_sheets = new_text.split(/^-\s*\r\n/).map { |sheet| sheet.gsub(/\r\n(?!:)/, '') }
+      new_text << "\r\n" if new_text.end_with?('-')
+      raw_sheets = new_text.split(/^-\s*\r\n/).map do |sheet|
+        sheet.gsub(/\r\n(?!:\d{2}\w?:)/, '')
+      end
       sheets = raw_sheets.map { |raw_sheet| parse_sheet(raw_sheet) }
     end
 

@@ -1,0 +1,13 @@
+---
+- - !ruby/object:MT940::StatementLineInformation
+    modifier:
+    content: '166?20Spende abcdefghijklmnopqrstuvwxyzabcde Verwendungszweck: ?701234567
+      Betterplace?30ABCDEFGH?31DE12345678912345789012?32Abcdefg Hijklmnop'
+    code: 166
+    bank_code: ABCDEFGH
+    account_number: DE12345678912345789012
+    not_implemented_fields:
+    - - '70'
+      - 1234567 Betterplace
+    details: 'Spende abcdefghijklmnopqrstuvwxyzabcde Verwendungszweck: '
+    account_holder: Abcdefg Hijklmnop
