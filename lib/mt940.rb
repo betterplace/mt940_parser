@@ -276,7 +276,7 @@ class MT940
       raw_sheets = new_text.split(/^-\s*\r\n/).map do |sheet|
         sheet.gsub(/\r\n(?!:\d{2}\w?:)/, '')
       end
-      sheets = raw_sheets.map { |raw_sheet| parse_sheet(raw_sheet) }
+      raw_sheets.map { |raw_sheet| parse_sheet(raw_sheet) }
     end
 
     private

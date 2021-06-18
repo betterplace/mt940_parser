@@ -22,6 +22,7 @@ GemHadar do
   licenses    'MIT'
 
   development_dependency 'test-unit'
+  development_dependency 'rubocop'
 end
 
 task :default => :test

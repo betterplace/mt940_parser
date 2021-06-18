@@ -1,4 +1,5 @@
-[![Gem Version](https://badge.fury.io/rb/mt940_parser.svg)](http://badge.fury.io/rb/mt940_parser) [![Build Status](https://secure.travis-ci.org/betterplace/mt940_parser.svg?branch=master)](http://travis-ci.org/betterplace/mt940_parser)
+[![Gem Version](https://badge.fury.io/rb/mt940_parser.svg)](http://badge.fury.io/rb/mt940_parser)
+[![Build Status](https://github.com/betterplace/mt940_parser/workflows/tests/badge.svg)](https://github.com/betterplace/mt940_parser/actions)
 
 # mt940_parser
 
