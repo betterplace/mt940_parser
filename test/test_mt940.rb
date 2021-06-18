@@ -9,8 +9,11 @@ class TestMt940 < Test::Unit::TestCase
       data = MT940.parse(IO.read(file))
 
       generated_structure_file = file.gsub(/.txt$/, ".yml")
+      # ruby 3.1 / psych 4 disallows loading classes from YAML by default
+      load_method = YAML.respond_to?(:unsafe_load_file) ? :unsafe_load_file : :load_file
 
-      assert_equal YAML::load_file(generated_structure_file).to_yaml, data.to_yaml
+      assert_equal YAML.send(load_method, generated_structure_file).to_yaml,
+                   data.to_yaml
     end
   end
 
