@@ -14,8 +14,10 @@ class MT940
 
     class << self
 
+      LINE = /^:(\d{2})(\w)?:(.*)$/
+
       def for(line)
-        if line.match(/^:(\d{2})(\w)?:(.*)$/)
+        if line.match(LINE)
           number, modifier, content = $1, $2, $3
           klass = {
             '20' => Job,
@@ -34,7 +36,9 @@ class MT940
 
           klass.new(modifier, content)
         else
-          raise Errors::WrongLineFormatError, "Wrong line format: #{line.dump}"
+          raise Errors::WrongLineFormatError,
+            "Wrong line format does not match #{LINE.inspect}. Got: "\
+            "#{line.dump[0...80]}#{'[...]' if line.dump.size > 80}"
         end
       end
     end
