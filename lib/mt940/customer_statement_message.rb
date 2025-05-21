@@ -36,7 +36,7 @@ class MT940
     end
 
     def signature
-      Digest::SHA256.hexdigest(opening_balance.content.to_s + closing_balance.content.to_s)
+      Digest::SHA256.hexdigest(opening_balance&.content.to_s + closing_balance&.content.to_s)
     end
 
     private

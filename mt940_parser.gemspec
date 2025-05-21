@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
-# stub: mt940_parser 1.5.4 ruby lib
+# stub: mt940_parser 1.5.5 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "mt940_parser".freeze
-  s.version = "1.5.4"
+  s.version = "1.5.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Thies C. Arntzen".freeze, "Phillip Oertel".freeze]
-  s.date = "2022-05-27"
+  s.date = "2025-05-21"
   s.description = "Ruby library that parses account statements in the SWIFT MT940 format.".freeze
   s.email = "developers@betterplace.org".freeze
   s.extra_rdoc_files = ["README.md".freeze, "lib/mt940.rb".freeze, "lib/mt940/customer_statement_message.rb".freeze, "lib/mt940/errors.rb".freeze, "lib/mt940/version.rb".freeze, "lib/mt940_parser.rb".freeze]
