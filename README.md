@@ -17,7 +17,3 @@ http://www.google.de/url?sa=t&source=web&cd=1&ved=0CBwQFjAA&url=http%3A%2F%2Fmar
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
-
-## Copyright
-
-Copyright (c) 2010 Thies C. Arntzen. See LICENSE for details.
